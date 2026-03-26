@@ -1,0 +1,20 @@
+{
+  "_comment": "Copy this file and replace placeholders with your credentials",
+  "_instructions": [
+    "For ZhipuAI (zai): Get API key from https://open.bigmodel.cn/",
+    "For GitHub Copilot: Run 'pi' then use /login command",
+    "For Anthropic: Add 'anthropic': { 'type': 'api_key', 'key': 'YOUR_KEY' }",
+    "For OpenAI: Add 'openai': { 'type': 'api_key', 'key': 'YOUR_KEY' }"
+  ],
+  "zai": {
+    "type": "api_key",
+    "key": "YOUR_ZHIPUAI_API_KEY_HERE"
+  },
+  "github-copilot": {
+    "_comment": "Run 'pi' and use /login to authenticate",
+    "type": "oauth",
+    "refresh": "",
+    "access": "",
+    "expires": 0
+  }
+}

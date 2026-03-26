@@ -1,0 +1,24 @@
+{
+  "lastChangelogVersion": "0.62.0",
+  "defaultProvider": "zai",
+  "defaultModel": "glm-5",
+  "defaultThinkingLevel": "medium",
+  "packages": [
+    "npm:@codexstar/pi-listen",
+    "npm:@weiping/pi-superpowers"
+  ],
+  "voice": {
+    "version": 2,
+    "enabled": true,
+    "language": "en",
+    "scope": "global",
+    "backend": "local",
+    "localModel": "parakeet-v2",
+    "onboarding": {
+      "completed": true,
+      "schemaVersion": 2,
+      "completedAt": "",
+      "source": "migration"
+    }
+  }
+}
