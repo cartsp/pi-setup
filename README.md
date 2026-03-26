@@ -61,3 +61,15 @@ Safe to run multiple times. Existing config will be backed up.
 
 Run `pi --version` to verify installation.
 Check `~/.pi/agent/settings.json` exists.
+
+## Tested Platforms
+
+- macOS (Sonoma, Ventura)
+- WSL 2 (Ubuntu 22.04)
+- Linux (Ubuntu 22.04, Debian 12)
+
+## Voice Model
+
+The parakeet-v2 voice model downloads automatically on first voice input (~661MB).
+
+To check model status or trigger download manually, see `voice/download-model.sh`.
