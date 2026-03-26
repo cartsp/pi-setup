@@ -174,5 +174,19 @@ configure_settings
 # Phase 4: Install packages
 install_packages
 
-# TODO: Implement remaining phases
-echo "Setup not yet implemented"
+# Phase 5: Complete
+echo -e "${GREEN}✓ Pi setup complete!${NC}"
+echo ""
+echo "Next steps:"
+echo "1. Add your API keys:"
+echo "   nano ~/.pi/agent/auth.json"
+echo ""
+echo "2. Start pi:"
+echo "   pi"
+echo ""
+echo "3. On first voice input, parakeet-v2 model will download (~661MB)"
+echo ""
+echo "Configuration:"
+echo "  Settings: ~/.pi/agent/settings.json"
+echo "  Auth:     ~/.pi/agent/auth.json"
+echo "  Packages: pi-superpowers, pi-listen"
