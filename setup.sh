@@ -26,8 +26,47 @@ detect_platform() {
 
 PLATFORM=$(detect_platform)
 
+check_prerequisites() {
+    echo -e "${GREEN}✓${NC} Checking prerequisites..."
+
+    # Node.js 18+
+    if ! command -v node &> /dev/null; then
+        echo -e "${RED}❌ Node.js is not installed${NC}"
+        echo "   Install from: https://nodejs.org/ (LTS version)"
+        exit 1
+    fi
+
+    NODE_VERSION=$(node -v | cut -d'v' -f2 | cut -d'.' -f1)
+    if [[ $NODE_VERSION -lt 18 ]]; then
+        echo -e "${RED}❌ Node.js version too old: $(node -v)${NC}"
+        echo "   Requires Node.js 18 or higher"
+        exit 1
+    fi
+    echo "  Node.js: $(node -v)"
+
+    # npm
+    if ! command -v npm &> /dev/null; then
+        echo -e "${RED}❌ npm is not installed${NC}"
+        exit 1
+    fi
+    echo "  npm: $(npm -v)"
+
+    # Git
+    if ! command -v git &> /dev/null; then
+        echo -e "${RED}❌ Git is not installed${NC}"
+        exit 1
+    fi
+    echo "  Git: $(git --version | cut -d' ' -f3)"
+
+    echo "  Platform: $PLATFORM"
+    echo ""
+}
+
 echo "Pi Setup - Bootstrap your pi environment"
 echo ""
 
-# TODO: Implement phases
+# Phase 1: Check prerequisites
+check_prerequisites
+
+# TODO: Implement remaining phases
 echo "Setup not yet implemented"
