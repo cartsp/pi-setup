@@ -13,7 +13,7 @@ Bootstrap script for pi coding agent with custom configuration.
 
 1. Clone this repo:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/pi-setup.git
+   git clone https://github.com/cartsp/pi-setup.git
    cd pi-setup
    ```
 
