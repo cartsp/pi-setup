@@ -19,8 +19,12 @@ Bootstrap script for pi coding agent with custom configuration.
 
 2. Run setup:
    ```bash
+   # macOS/Linux/WSL
    chmod +x setup.sh
    ./setup.sh
+
+   # Windows PowerShell (native)
+   .\setup.ps1
    ```
 
 3. Add your API keys:
@@ -71,6 +75,7 @@ Check `~/.pi/agent/settings.json` exists.
 - macOS (Sonoma, Ventura)
 - WSL 2 (Ubuntu 22.04)
 - Linux (Ubuntu 22.04, Debian 12)
+- Windows 10/11 (PowerShell 5.1+)
 
 ## Voice Model
 
