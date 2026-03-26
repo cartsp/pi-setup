@@ -39,6 +39,10 @@ Bootstrap script for pi coding agent with custom configuration.
 - npm
 - Git
 
+### Windows Notes
+- Run PowerShell as Administrator for global npm installs
+- Or configure npm to use user directory: `npm config set prefix "$env:APPDATA\npm"`
+
 ## What Gets Configured
 
 - `~/.pi/agent/settings.json` - Pi configuration
