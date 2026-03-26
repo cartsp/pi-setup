@@ -132,6 +132,33 @@ configure_settings() {
     echo ""
 }
 
+install_packages() {
+    echo -e "${GREEN}✓${NC} Installing packages..."
+
+    # Install pi-superpowers
+    echo "  Installing pi-superpowers..."
+    if ! pi install npm:@weiping/pi-superpowers; then
+        echo -e "${YELLOW}⚠️  pi-superpowers installation may have failed${NC}"
+    fi
+
+    # Install pi-listen
+    echo "  Installing pi-listen..."
+    if ! pi install npm:@codexstar/pi-listen; then
+        echo -e "${YELLOW}⚠️  pi-listen installation may have failed${NC}"
+    fi
+
+    # Verify installations
+    if pi list 2>/dev/null | grep -q "pi-superpowers"; then
+        echo "  ✓ pi-superpowers installed"
+    fi
+
+    if pi list 2>/dev/null | grep -q "pi-listen"; then
+        echo "  ✓ pi-listen installed"
+    fi
+
+    echo ""
+}
+
 echo "Pi Setup - Bootstrap your pi environment"
 echo ""
 
@@ -143,6 +170,9 @@ install_pi "$1"
 
 # Phase 3: Configure settings
 configure_settings
+
+# Phase 4: Install packages
+install_packages
 
 # TODO: Implement remaining phases
 echo "Setup not yet implemented"
