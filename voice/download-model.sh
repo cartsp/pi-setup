@@ -1,0 +1,22 @@
+#!/bin/bash
+# voice/download-model.sh - Information about voice model download
+
+echo "ℹ️  Voice Model Information"
+echo ""
+echo "The parakeet-v2 voice model downloads automatically on first voice input."
+echo ""
+echo "Model details:"
+echo "  Name: parakeet-v2"
+echo "  Size: ~661MB"
+echo "  Location: ~/.pi/models/parakeet-v2/"
+echo ""
+echo "Files:"
+echo "  - decoder.int8.onnx (7.3 MB)"
+echo "  - encoder.int8.onnx (652 MB)"
+echo "  - joiner.int8.onnx (1.7 MB)"
+echo "  - tokens.txt (9 KB)"
+echo ""
+echo "To trigger download:"
+echo "  1. Start pi: pi"
+echo "  2. Use voice input (default keybinding)"
+echo "  3. Model will download automatically"
