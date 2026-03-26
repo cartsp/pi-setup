@@ -90,6 +90,48 @@ install_pi() {
     echo ""
 }
 
+configure_settings() {
+    echo -e "${GREEN}✓${NC} Configuring settings..."
+
+    # Create .pi directory
+    mkdir -p "$HOME/.pi/agent"
+
+    # Backup existing settings if present
+    if [[ -f "$HOME/.pi/agent/settings.json" ]]; then
+        BACKUP_FILE="$HOME/.pi/agent/settings.json.backup.$(date +%s)"
+        echo "  Backing up existing settings to: $(basename $BACKUP_FILE)"
+        mv "$HOME/.pi/agent/settings.json" "$BACKUP_FILE"
+    fi
+
+    # Copy settings template
+    cp "$SCRIPT_DIR/config/settings.template.json" "$HOME/.pi/agent/settings.json"
+
+    # Set completedAt timestamp
+    TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
+    if [[ "$PLATFORM" == "macos" ]]; then
+        # macOS sed
+        sed -i '' "s/\"completedAt\": \"\"/\"completedAt\": \"$TIMESTAMP\"/" "$HOME/.pi/agent/settings.json"
+    else
+        # Linux sed
+        sed -i "s/\"completedAt\": \"\"/\"completedAt\": \"$TIMESTAMP\"/" "$HOME/.pi/agent/settings.json"
+    fi
+
+    echo "  Settings: ~/.pi/agent/settings.json"
+
+    # Backup existing auth if present
+    if [[ -f "$HOME/.pi/agent/auth.json" ]]; then
+        BACKUP_FILE="$HOME/.pi/agent/auth.json.backup.$(date +%s)"
+        echo "  Backing up existing auth to: $(basename $BACKUP_FILE)"
+        mv "$HOME/.pi/agent/auth.json" "$BACKUP_FILE"
+    fi
+
+    # Copy auth template
+    cp "$SCRIPT_DIR/config/auth.template.json" "$HOME/.pi/agent/auth.json"
+
+    echo "  Auth:     ~/.pi/agent/auth.json"
+    echo ""
+}
+
 echo "Pi Setup - Bootstrap your pi environment"
 echo ""
 
@@ -98,6 +140,9 @@ check_prerequisites
 
 # Phase 2: Install pi
 install_pi "$1"
+
+# Phase 3: Configure settings
+configure_settings
 
 # TODO: Implement remaining phases
 echo "Setup not yet implemented"
